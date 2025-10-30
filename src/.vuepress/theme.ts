@@ -9,9 +9,9 @@ export default hopeTheme({
     url: "https://mirpri.github.io",
   },
 
-  logo: "/logo.svg",
+  logo: "/logo.png",
 
-  repo: "mirpri/mirpri-notes",
+  repo: "mirpri/mirnotes",
 
   docsDir: "src",
 
@@ -78,7 +78,7 @@ export default hopeTheme({
     // You MUST generate and use your own comment service in production.
     comment: {
       provider: "Giscus",
-      repo: "mirpri/mirpri-notes",
+      repo: "mirpri/mirnotes",
       repoId: "R_kgDOQL-rfA",
       category: "Announcements",
       categoryId: "DIC_kwDOQL-rfM4CxQAO",

@@ -7,5 +7,4 @@ export default navbar([
   "/Web/",
   "/Linux/",
   "/Machine-Learning/",
-  
 ]);
