@@ -1,1 +1,30 @@
 // place your custom styles here
+#navbar{
+    /* keep the animated gradient but make it semi-transparent so we can see blur behind it */
+    background: linear-gradient(90deg,
+        rgba(243,144,147,0.65),
+        rgba(255,187,168,0.65),
+        rgba(189,163,255,0.65),
+        rgba(236,161,215,0.65),
+        rgba(243,144,147,0.65),
+        rgba(255,187,168,0.65)
+    );
+    background-size: 500% 200%;
+    animation: gradientAnimation 20s linear infinite;
+
+    /* glassy effect */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+
+    margin:5px;
+    border-radius:12px;
+}
+
+.hide-navbar #navbar{
+    transform: translateY(calc(-100% - 10px));
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+}
