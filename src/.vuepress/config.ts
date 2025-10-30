@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: "/",
+  base: '/mirpri-notes/',
 
   lang: "en-US",
   title: "Mirpri's Notes",
