@@ -9,7 +9,7 @@ export default hopeTheme({
     url: "https://mirpri.github.io",
   },
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/logo.svg",
 
   repo: "mirpri/mirpri-notes",
 
@@ -21,7 +21,7 @@ export default hopeTheme({
   // sidebar
   sidebar: "structure",
 
-  footer: "Default footer",
+  footer: "My coding notes built with VuePress",
 
   displayFooter: true,
 
@@ -76,13 +76,13 @@ export default hopeTheme({
   plugins: {
     // Note: This is for testing ONLY!
     // You MUST generate and use your own comment service in production.
-    // comment: {
-    //   provider: "Giscus",
-    //   repo: "vuepress-theme-hope/giscus-discussions",
-    //   repoId: "R_kgDOG_Pt2A",
-    //   category: "Announcements",
-    //   categoryId: "DIC_kwDOG_Pt2M4COD69",
-    // },
+    comment: {
+      provider: "Giscus",
+      repo: "mirpri/mirpri-notes",
+      repoId: "R_kgDOQL-rfA",
+      category: "Announcements",
+      categoryId: "DIC_kwDOQL-rfM4CxQAO",
+    },
 
     catalog: {
       

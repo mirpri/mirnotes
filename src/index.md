@@ -9,4 +9,4 @@
 
 [![View my homepage](https://img.shields.io/badge/View-Homepage-blue)](https://mirpri.github.io/)
 [![Follow on GitHub](https://img.shields.io/github/followers/Mirpri?label=Follow%20me%20on%20GitHub&style=social)](https://github.com/Mirpri)
-[![Star my repository](https://img.shields.io/github/stars/Mirpri/coding-notes?style=social)](https://github.com/Mirpri/coding-notes/stargazers)
+[![Star my repository](https://img.shields.io/github/stars/Mirpri/coding-notes?style=social)](https://github.com/Mirpri/mirpri-notes/stargazers)

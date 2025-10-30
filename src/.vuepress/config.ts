@@ -13,6 +13,13 @@ export default defineUserConfig({
 
   head: [
     [
+      "link",
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+      },
+    ],
+    [
       "script",
       {
         async: true,
