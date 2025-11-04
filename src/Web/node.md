@@ -1,4 +1,6 @@
 # Node.js
+使用Node.js开始全栈开发！
+
 在官网下载安装node.js:
 https://nodejs.org/en
 
@@ -10,3 +12,12 @@ https://nodejs.org/en
 [🔗Express/Node 入门](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction)
 
 跟随教程一路下一页，完成自己的第一个vue/express项目
+
+## 更系统的学习路线：
+### The Odin Project
+https://www.theodinproject.com/paths
+
+### Roadmap
+https://roadmap.sh/full-stack
+
+
