@@ -312,6 +312,18 @@ int main() {
 }
 ```
 
+局部`static`变量的初始值也为0
+```C
+#include <iostream>
+using namespace std;
+
+int main(){
+  int a;
+  static int b;
+  cout<<a<<endl<<b;
+  return 0;
+}
+```
 ## 两种定义字符串的方法
 
 method 1:
@@ -918,3 +930,15 @@ A,B,M`= RAND_MAX` 是产生器设定的常数。
 srand(time(NULL)); //用时间做种子，保证每次运行时不同
 srand(a); //使用固定的种子，生成的序列是固定的
 ```
+
+## 格式化输出
+
+- char: %c;  short, int: %d; long：%ld; 其中%开始的输出格式符称为占位符。
+- 输出无符号数用u代替d(十进制)，八进制数用o代替d，十六进制用x代替d
+- 整数表示宽度如printf(“%5c”, ‘A’)打印字符占5格(右对齐)。%-5d表示左对齐。  
+- float：%f; double：%lf。float, double：%e科学计数。%g自动选宽度小的e或f。
+- 可对%f或%lf设定宽度和精度及对齐方式。“%-8.2f”表示左对齐、总宽度8(包括符号位和小数部分)，其中精度为2位小数。
+- 字符串输出：%s。可设定宽度和对齐：printf(“%5s”,”abc”)。
+
+## 数组名和索引可以换位
+
