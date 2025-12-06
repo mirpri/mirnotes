@@ -8,6 +8,27 @@
 
 运算符重载若作为**类的成员函数**，必须是**非静态成员函数**
 
+## 确定匹配
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void func(const int*) {
+    cout << "2" << endl;
+}
+
+void func(volatile int*) {
+    cout << "3" << endl;
+}
+
+int main() {
+    int a = 10;
+    // 下面这行代码会编译报错，因为编译器无法确定调用哪个重载版本
+    func(&a);
+    return 0;
+}
+```
 ### 重载 `++` `--`
 
 ```cpp
