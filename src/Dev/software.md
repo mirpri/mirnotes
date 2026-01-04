@@ -1,4 +1,4 @@
-# My tools
+# My Favorite Softwares
 
 ## Neovim
 

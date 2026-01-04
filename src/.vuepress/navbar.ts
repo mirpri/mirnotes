@@ -5,6 +5,6 @@ export default navbar([
   "/C-notes/",
   "/Cpp-notes/",
   "/Web/",
-  "/Linux/",
-  "/Machine-Learning/",
+  "/Dev/",
+  "/AI/",
 ]);

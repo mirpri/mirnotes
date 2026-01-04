@@ -1,2 +1,0 @@
-# Dev Enviroments
-<Catalog/>
