@@ -122,16 +122,16 @@ sudo systemctl status ssh
 
 ```bash
 sudo apt install openssh-server
+sudo systemctl start ssh #启动服务
 ```
 
-安装后，启动ssh服务
-
-```bash
-sudo systemctl start ssh
+arch linux:
+```
+sudo pacman -S 
 ```
 然后再检查一下ssh服务状态，显示active就说明已经安装成功
 
-此时从windows端WinSCP新建连接，选择SFTP协议，输入linux设备的ip和用户名密码即可进入linux文件系统。
+此时从windows端WinSCP新建连接，选择**SFTP**协议，输入linux设备的ip和用户名密码即可进入linux文件系统。
 
 ## Handling problems
 
@@ -149,3 +149,17 @@ sudo systemctl restart gdm
 #其他可能采用lightdm
 sudo systemctl restart lightdm
 ```
+
+### chrome/vscode 显示异常
+禁用硬件加速。
+chrome在设置中搜索，vscode编辑配置文件：
+
+- 按下 Ctrl+Shift+P 打开命令面板。
+
+- 输入 Preferences: Configure Runtime Arguments 并回车。
+
+- 在打开的 argv.json 文件中添加：
+    ```
+    "disable-hardware-acceleration": true，如下：
+    ```
+- 重启 VSCode。

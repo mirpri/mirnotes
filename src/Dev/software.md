@@ -26,3 +26,13 @@ use ./conda.nu
 
 ### oh-my-posh
 omp can work seemlessly with nushell.
+
+## Fish
+Fish is a **very user-friendly** shell. It literally have the best auto-completions out of the box.
+
+### Disable welcome message
+add this line:
+```
+set fish_greeting
+```
+to `~/.config/fish/config.fish`
