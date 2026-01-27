@@ -1,3 +1,7 @@
+---
+order: 2
+---
+
 # Try something in C
 
 *一些值得尝试的代码*
