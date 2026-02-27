@@ -1,10 +1,15 @@
 # Set up Linux
 
 ## Choose your favorite distro
-作为开源系统，Linux有诸多发行版本。选择你喜欢的版本或最受欢迎的版本（如Ubuntu, 更容易解决遇到的问题）即可。
+作为开源系统，Linux有诸多发行版本。选择你喜欢的版本或最受欢迎的版本即可。
+
+> [Omarchy](https://omarchy.org/) is an elegant, ready-to-use, **arch**-based linux setup with deep customization and super-easy installation.
 
 ### 选择桌面环境
-桌面环境即是你将直接看到的图形界面。无论选择何种发行版本，KDE和Gnome都是最受欢迎的选项。比较它们不同的风格做出选择。桌面环境可以在安装后更换。
+桌面环境即是你将直接看到的图形界面。无论选择何种发行版本，KDE和Gnome都是最受欢迎的选项。比较它们不同的风格做出选择。
+
+> Hyprland是一种现代化轻量型Wayland窗口管理器，核心理念是“动态平铺”，带来与PC完全不同的操作体验。
+
 
 ## Start installation
 ### 制作安装介质
@@ -20,34 +25,39 @@ iso文件分为在线安装版和离线安装版。
 
 选择U盘和刚下载的iso文件，点击开始，稍等片刻，当进度条显示ready时制作完成，弹出U盘。
 
+### 开始安装
+开机时按F1-12，进入BIOS/UEFI,通过U盘启动，按照安装向导完成安装
+
 ## Install neccessary software
 
->⚠️ 以下安装软件的命令基于apt包管理器，适用于debian, ubuntu, linuxmint等，其他系统可能使用不同的包管理器，命令和包名称有所不同，需查询。
+>⚠️ 不同发行版使用不同的包管理器，命令和包名称有所不同，需查询。
 
 ### 中文输入法
+最流行的方式：Fcitx5
 
-若系统自带ibus或旧版的fcitx，卸载系统自带的输入法
-```bash
-sudo apt purge fcitx*
-sudo apt purge ibus*
-sudo apt autoremove
-```
+1. 安装fcixt5:
+    ```bash
+    sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki
+    ```
+    **fcitx5-im**: Installs the main daemon and the configuration GUI.  
+    **fcitx5-chinese-addons**: Includes the actual Pinyin engine.  
+    **fcitx5-pinyin-zhwiki**: Adds a massive dictionary based on Chinese Wikipedia to improve word association.
 
-安装fcitx5拼音输入法
+2. 在 `/etc/environment` 添加：
+    ```Plaintext
+    GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+    ```
+3. 设置自动启动
+    **KDE Plasma**: Go to System Settings > Input & Output > Keyboard > Virtual Keyboard and select Fcitx 5. This is the most stable method for Wayland.
 
-```bash
-sudo apt install fcitx5 fcitx5-pinyin fcitx5-config-qt
-```
+    **GNOME**: Use the "AppIndicator and KStatusNotifierItem Support" extension to see the tray icon.
 
-设置为默认
-```bash
-im-config -n fcitx5
-```
+    **Window Managers (Hyprland, etc.)**: Add `fcitx5 -d` to your startup script (e.g., `exec-once = fcitx5 -d` in Hyprland).
 
-使更改生效
-```bash
-source ~/.profile
-```
+4. 设置输入法
+    运行`fcixt5-configtool`，在图形界面中添加汉语拼音
 
 重新启动后才可以成功打出汉字
 
@@ -61,7 +71,7 @@ source ~/.profile
 lsblk
 ```
 
-或者查看UUID信息（推荐使用UUID挂载，更稳定）
+查看UUID信息（推荐使用UUID挂载，更稳定）
 
 ```bash
 sudo blkid
@@ -115,21 +125,25 @@ df -h
 接下来需要进入到Ubuntu中，查看一下是否开启OpenSSH服务
 
 ```bash
-sudo systemctl status ssh
+sudo systemctl status sshd
 ```
 
 如果未安装ssh，需要安装ssh服务
 
 ```bash
-sudo apt install openssh-server
-sudo systemctl start ssh #启动服务
-```
+sudo apt install openssh-server # Ubuntu
+sudo pacman -S openssh # arch
 
-arch linux:
-```
-sudo pacman -S 
+sudo systemctl start sshd #启动服务
 ```
 然后再检查一下ssh服务状态，显示active就说明已经安装成功
+
+如果localhost可以连接，从其它机器也能ping通，但还是无法连接，可能是防火墙设置：
+```bash
+ufw status  # 查看状态，确认22端口放行
+# 未放行则执行：
+ufw allow 22/tcp && ufw reload
+```
 
 此时从windows端WinSCP新建连接，选择**SFTP**协议，输入linux设备的ip和用户名密码即可进入linux文件系统。
 
@@ -163,3 +177,6 @@ chrome在设置中搜索，vscode编辑配置文件：
     "disable-hardware-acceleration": true，如下：
     ```
 - 重启 VSCode。
+
+## Tips
+- For arch users, 如果需要的软件厂商没有提供对应的版本，自己编译又会遇到错误(如源代码依赖很古老的版本的工具链)，AUR上可能可以找到一键安装脚本。
