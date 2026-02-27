@@ -1,11 +1,22 @@
 # DevOps
 
 - [DevOps](#devops)
+  - [PM2](#pm2)
   - [Get a certificate](#get-a-certificate)
     - [Install the Certbot Nginx plugin](#install-the-certbot-nginx-plugin)
     - [Run Certbot](#run-certbot)
     - [Renew licence (future)](#renew-licence-future)
 
+## PM2
+PM2 is a daemon process manager that will help you manage and keep your application online.
+
+https://pm2.keymetrics.io/docs/usage/quick-start/  
+CN:https://pm2.node.org.cn/docs/usage/quick-start/
+
+Create a task with specific name:
+```bash
+pm2 start "start command" --name <name>
+```
 
 ## Get a certificate
 If using nginx, getting a certificate with cerbot's nginx plugin is the easiest way:
