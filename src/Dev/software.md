@@ -7,7 +7,7 @@ https://github.com/mirpri/MyLazyVim
 
 
 ### clangd config
-Clangd is the C/C++ language server. In windows, it can be configured globally in `C:\Users\xxx\AppData\Local\clangd\config.yaml`. You need to adjust the settings based your default compiler. Basically, if you are using the latest version of `mingw`, set to:
+Clangd is the C/C++ language server you may use for C/C++ developing with neovim. In windows, it can be configured globally in `C:\Users\xxx\AppData\Local\clangd\config.yaml`. You need to adjust the settings based on your default compiler and set your preferred standard. Basically, if you are using the latest version of `mingw`, set to:
 ```yaml
 CompileFlags:
   Add:
@@ -33,6 +33,29 @@ Fish is a **very user-friendly** shell. It literally have the best auto-completi
 ### Disable welcome message
 add this line:
 ```
-set fish_greeting
+set -g fish_greeting
 ```
 to `~/.config/fish/config.fish`
+
+Change welcome message:
+
+```
+set -g fish_greeting "Hello"
+```
+
+Display system info:
+
+```
+set -l os_info (grep "PRETTY_NAME" /etc/os-release | cut -d '"' -f 2)
+set -g fish_greeting "Welcome to $os_info!"
+```
+
+## mpv
+
+A minimal yet powerful video player. Blazing fast and fully customizable.
+
+Official site: https://mpv.io
+
+My configuration: https://github.com/mirpri/mpv-config
+
+It's recommended to install from scoop and build file association with scripts from [this repo](https://github.com/rossy/mpv-install).
