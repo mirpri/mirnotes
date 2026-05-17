@@ -16,8 +16,18 @@
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
 
-    margin:5px;
-    border-radius:12px;
+    margin: 5px auto;
+    width: calc(100% - 20px);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+html.at-top #navbar {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 
 .hide-navbar .vp-navbar.auto-hide {
