@@ -34,14 +34,13 @@ jobs:
 
       - name: Install Deps
         run: |
-          corepack enable
           pnpm install --frozen-lockfile
 
       - name: Build Docs
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          pnpm run docs:build
+          pnpm build
           > src/.vuepress/dist/.nojekyll
 
       - name: Deploy Docs

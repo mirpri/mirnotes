@@ -1,11 +1,13 @@
+My notes published with [VuePress](https://v2.vuepress.vuejs.org/) theme [hope](https://theme-hope.vuejs.press/).
+
 preview:
 ```bash
-pnpm run docs:dev
+pnpm dev
 ```
 
 build:
 ```bash
-pnpm run docs:build
+pnpm build
 ```
 
-use `Markdown All in One` in vscode to generate TOC
+`Markdown All in One` extension in vscode is used to generate TOC
