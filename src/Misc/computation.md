@@ -148,6 +148,23 @@ For each terminal $a$, add: $a, a\to \varepsilon$
 
 VERY COMPLICATED; prove by induction
 
+>1. Modify PDA: 
+>
+>   1. single accept state; 
+>   2. new initial stack symbol; 
+>   3. empty the stack before new acceptance; 
+>   4. each transition pops or pushes only
+>
+>2. The grammar starts with $A_{q_0q_f}$, and has productions:
+>
+>   1. $A_{qq}\to \varepsilon$
+>
+>   2. $A_{pq}\to A_{pr}A_{rq}$
+>
+>   3. $A_{pq}\to aA_{rs}b$ for every pairs of transition:
+>
+>      ![image-20261124172908288](res/image-20261124172908288.png)
+
 ### Deterministic PDA (DPDA)
 
 - Non-deterministic choices not allowed
@@ -260,6 +277,13 @@ $\bar L$ consists of the 0s in the diagonal, Non Turing-Acceptable
 
 $L$ consists of the 1s in the diagonal, Turing-Acceptable but undecidable
 
+> L is Turing-Acceptable because we can construct a TM that for input $a^i$:
+>
+> 1. Enumerate the i-th TM
+> 2. Run it on input
+>
+> We can't do that for $\bar L$ because on step 2 we'll have to get the complement, but Turing-Acceptable Language is not closed under that.
+
 ## Languages
 
 **Language $L$**: a set of strings
@@ -367,6 +391,8 @@ or left-linear grammar:
 $$
 A \to Bx \quad or \quad A \to x
 $$
+
+x can be empty string
 
 #### Left-linear grammar => right-linear grammar
 
@@ -527,7 +553,13 @@ Polynomial time: $P=\bigcup\limits_k \text{TIME}(n^k)$
 
 Non-Deterministic Polynomial time: $NP=\bigcup\limits_k \text{NTIME}(n^k)$
 
-> CYK-algorithm: solve CFL membership problem in $\text{TIME}(n^3)$. Bottom-up Dynamic Programming with CNF
+### P problems
+
+- CYK-algorithm: solve CFL membership problem in $\text{TIME}(n^3)$. Bottom-up Dynamic Programming with CNF
+- 2-SAT: Construct a Graph and reduce to path search
+  - vertex for each var and negation;
+  - add edge (a,b) if there exists a clause equivalent to $(\neg a\lor b)$ (if a is true then downstream vars also have to be true)
+  - satisfiable if no path: x->!x
 
 ### Polynomial Time Reductions
 
